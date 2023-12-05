@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Button 1</button>
+  <button>Button 2</button>
+  <button>Button 3</button>
+  <script>
+    const buttonEls = document.querySelectorAll('button');
+
+    for (const buttonEl of buttonEls) {
+      // closure (du point de vue de la ligne 18)
+      buttonEl.addEventListener('click', () => {
+        console.log(buttonEl.innerText);
+      });
+    }
+
+    // pile d'appel
+    // ^
+    // |
+    // |
+    // |for { [addEventListener] }               [task]
+    // +-------------------------------------------------------(click)-> temps
+
+  </script>
+</body>
+</html>

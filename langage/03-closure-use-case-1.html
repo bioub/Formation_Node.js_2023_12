@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function createButton(content) {
+      const buttonEl = document.createElement('button');
+      buttonEl.innerText = content;
+      buttonEl.addEventListener('click', () => {
+        console.log(content);
+      });
+      document.body.append(buttonEl);
+    }
+
+    createButton('Button 1');
+    createButton('Button 2');
+    createButton('Button 3');
+
+    // pile d'appel
+    // ^
+    // |
+    // |
+    // |[createButton][createButton][createButton]             [task]
+    // +-------------------------------------------------------(click)-> temps
+
+  </script>
+</body>
+</html>

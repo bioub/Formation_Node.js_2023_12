@@ -1,3 +1,4 @@
+'use strict';
 globalThis.globalScope = 'globalScope';
 const moduleScope = 'moduleScope';
 
@@ -17,3 +18,10 @@ function externe() {
   interne();
 }
 externe();
+
+// pile d'appel
+// ^
+// |
+// |[interne]
+// |[externe]
+// +-----------------> temps
