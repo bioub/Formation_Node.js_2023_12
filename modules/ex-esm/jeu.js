@@ -5,6 +5,7 @@
 
 import { createInterface } from 'readline';
 import { getRandomInt } from './random.js';
+import chalk from 'chalk';
 
 export default class Jeu {
   essais = [];
@@ -32,7 +33,7 @@ export default class Jeu {
       const entierSaisi = Number.parseInt(answer, 10);
 
       if (Number.isNaN(entierSaisi)) {
-        console.log('Erreur : il faut saisir un nombre');
+        console.log(chalk.red('Erreur : il faut saisir un nombre'));
         return this.jouer();
       }
 
