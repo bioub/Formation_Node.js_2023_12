@@ -41,16 +41,20 @@ const readline = require('readline');
 // game.jouer()
 
 class Jeu {
+  essais = [];
+
   constructor(options = {}) {
     // const min = (options.min !== undefined) ? options.min : 0;
     const min = options.min ?? 0;
     const max = options.max ?? 100;
+
+    // const { min = 0, max = 100 } = options;
+
     this.rl = readline.createInterface({
       input: process.stdin, // le clavier
       output: process.stdout, // le terminal
     });
     this.entierAlea = Random.getRandomInt(min, max);
-    this.essais = [];
   }
   jouer() {
     if (this.essais.length) {
