@@ -39,4 +39,4 @@ console.log('E');
 // } while (thereIsTaskToCall);
 
 // Jake Archibald - In The Loop (JSconf.Asia 2018)
-//
+// https://www.youtube.com/watch?v=cCOL7MC4Pl0
