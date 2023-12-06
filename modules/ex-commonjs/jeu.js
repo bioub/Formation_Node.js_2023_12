@@ -3,8 +3,9 @@
 // Remplacer exports par Jeu
 
 const readline = require('readline');
+const { getRandomInt } = require('./random');
 
-class Jeu {
+module.exports = class Jeu {
   essais = [];
 
   constructor(options = {}) {
@@ -18,7 +19,7 @@ class Jeu {
       input: process.stdin, // le clavier
       output: process.stdout, // le terminal
     });
-    this.entierAlea = Random.getRandomInt(min, max);
+    this.entierAlea = getRandomInt(min, max);
   }
   jouer() {
     if (this.essais.length) {

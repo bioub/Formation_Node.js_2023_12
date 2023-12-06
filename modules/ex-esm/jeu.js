@@ -3,9 +3,10 @@
 // Importer getRandomInt en ESM
 // Exporter Jeu avec un export default
 
-const readline = require('readline');
+import { createInterface } from 'readline';
+import { getRandomInt } from './random.js';
 
-class Jeu {
+export default class Jeu {
   essais = [];
 
   constructor(options = {}) {
@@ -15,11 +16,11 @@ class Jeu {
 
     // const { min = 0, max = 100 } = options;
 
-    this.rl = readline.createInterface({
+    this.rl = createInterface({
       input: process.stdin, // le clavier
       output: process.stdout, // le terminal
     });
-    this.entierAlea = Random.getRandomInt(min, max);
+    this.entierAlea = getRandomInt(min, max);
   }
   jouer() {
     if (this.essais.length) {
