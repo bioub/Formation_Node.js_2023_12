@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "md5": "^2.2.1",
+    "terser": "^5.25.0"
+  },
+  "scripts": {
+    "serve:dev": "http-server src",
+    "serve:prod": "http-server dist",
+    "build": "node build.js"
+  }
+}

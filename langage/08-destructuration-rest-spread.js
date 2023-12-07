@@ -57,7 +57,7 @@ const [un, deux, ...suite] = nbs;
 // conversion de syntaxe
 // un tableau -> d'une liste de valeurs
 
-//               [1, 2, 3, 4, 5]
+//                1, 2, 3, 4, 5
 function multiply(a, b, c, d, e) {
   return a * b * c * d * e;
 }

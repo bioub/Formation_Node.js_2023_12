@@ -21,11 +21,7 @@ function getRandomIntInclusive(min, max) {
 // importe l'API readline de Node.js
 const readline = require('readline');
 
-// configure où doit être lu la ligne
-const rl = readline.createInterface({
-  input: process.stdin, // le clavier
-  output: process.stdout, // le terminal
-});
+
 
 // la réponse est obtenu via un callback async
 // le param du callback est de type string (à vous de le convertir)
@@ -58,6 +54,11 @@ function jouer() {
   });
 }
 
+// configure où doit être lu la ligne
+const rl = readline.createInterface({
+  input: process.stdin, // le clavier
+  output: process.stdout, // le terminal
+});
 const essais = [];
 const entierAlea = getRandomInt(0, 100);
 jouer();

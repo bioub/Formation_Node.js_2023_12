@@ -41,7 +41,13 @@ const readline = require('readline');
 // game.jouer()
 
 class Jeu {
+  // depuis ES2022 on peut aussi créer les propriétés
+  // directement
   essais = [];
+  rl = readline.createInterface({
+    input: process.stdin, // le clavier
+    output: process.stdout, // le terminal
+  });
 
   constructor(options = {}) {
     // const min = (options.min !== undefined) ? options.min : 0;
@@ -50,10 +56,6 @@ class Jeu {
 
     // const { min = 0, max = 100 } = options;
 
-    this.rl = readline.createInterface({
-      input: process.stdin, // le clavier
-      output: process.stdout, // le terminal
-    });
     this.entierAlea = Random.getRandomInt(min, max);
   }
   jouer() {
@@ -96,6 +98,6 @@ class Jeu {
 // Prévoir des valeurs par défaut pour min et max
 // Prévoir qu'on puisse appeler Jeu sans paramètre comme dans l'ex 2
 
-const game = new Jeu();
+const game = new Jeu({ max: 20 });
 game.jouer();
 
