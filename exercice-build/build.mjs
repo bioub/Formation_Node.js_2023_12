@@ -1,5 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { Buffer } from 'node:buffer';
+import { URL } from 'node:url';
 import md5 from "md5";
 import { minify } from "terser";
 
