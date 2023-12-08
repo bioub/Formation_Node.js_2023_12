@@ -41,5 +41,22 @@ describe('authenticate middleware', () => {
   // Exercice
   // Tester que le status soit 401
   // et res.json appelé lorsque le token n'est pas valide
+  it('should call json when token is invalid', () => {
+    const req = {
+      headers: {
+        authorization: 'bad-token'
+      }
+    };
+    const res = {
+      json: Sinon.spy()
+    };
+    const next = () => {};
+    authenticate(req, res, next);
+
+    expect(res.statusCode).to.equal(401);
+    expect(res.json).to.have.been.calledWith({
+      msg: 'Unauthorized',
+    });
+  });
 
 });

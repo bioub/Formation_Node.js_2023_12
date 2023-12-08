@@ -22,6 +22,6 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "mocha --recursive",
-    "coverage": "nyc npm test"
+    "coverage": "nyc --reporter clover npm test"
   }
 }

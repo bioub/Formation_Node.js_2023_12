@@ -52,8 +52,26 @@ describe("Todos routes", () => {
     });
   });
 
-
   // Exercice
   // Tester le GET /api/todos/abdcef1234
   // avec un mock de findById
+  describe("GET /api/todos/abdcef1234", () => {
+    it("should respond data from database with mock", async () => {
+      const mock = Sinon.mock(Todo)
+        .expects("findById")
+        .resolves({ title: "ABC", _id: "abcdef1234", completed: false });
+
+      const res = await request(app).get("/api/todos/abdcef1234");
+      expect(res).to.have.status(200);
+      expect(res.body).to.deep.equal({
+        title: "ABC",
+        _id: "abcdef1234",
+        completed: false,
+      });
+
+      expect(mock).to.have.been.calledOnce;
+
+      Sinon.verifyAndRestore();
+    });
+  });
 });
