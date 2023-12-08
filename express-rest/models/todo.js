@@ -1,76 +1,93 @@
-const todos = [
-  {
-    id: 1,
-    title: 'Acheter du pain',
-    completed: false,
+const mongoose = require('mongoose');
+
+const schema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
   },
-  {
-    id: 2,
-    title: 'Introduire Express',
-    completed: true,
+  completed: {
+    type: Boolean,
+    default: false,
   }
-];
+});
 
-function generateId() {
-  const maxId = todos.reduce((acc, c) => c.id > acc ? c.id : acc, 0);
-  return maxId + 1;
-}
+const Todo = mongoose.model('Todo', schema, 'todos');
 
-function find() {
-  return Promise.resolve(todos);
-}
+module.exports = Todo;
 
-function findById(id) {
-  id = Number(id);
-  const todo = todos.find((c) => c.id === id);
+// const todos = [
+//   {
+//     id: 1,
+//     title: 'Acheter du pain',
+//     completed: false,
+//   },
+//   {
+//     id: 2,
+//     title: 'Introduire Express',
+//     completed: true,
+//   }
+// ];
 
-  if (!todo) {
-    return Promise.resolve(null);
-  }
+// function generateId() {
+//   const maxId = todos.reduce((acc, c) => c.id > acc ? c.id : acc, 0);
+//   return maxId + 1;
+// }
 
-  return Promise.resolve(todo);
-}
+// function find() {
+//   return Promise.resolve(todos);
+// }
 
-function create(todo) {
-  todo.id = generateId();
+// function findById(id) {
+//   id = Number(id);
+//   const todo = todos.find((c) => c.id === id);
 
-  todos.push(todo);
+//   if (!todo) {
+//     return Promise.resolve(null);
+//   }
 
-  return Promise.resolve(todo);
-}
+//   return Promise.resolve(todo);
+// }
 
-function findByIdAndDelete(id) {
-  id = Number(id);
-  const todo = todos.find((c) => c.id === id);
+// function create(todo) {
+//   todo.id = generateId();
 
-  if (!todo) {
-    return Promise.resolve(null);
-  }
+//   todos.push(todo);
 
-  const index = todos.indexOf(todo);
-  todos.splice(index, 1);
+//   return Promise.resolve(todo);
+// }
 
-  return Promise.resolve(todo);
-}
+// function findByIdAndDelete(id) {
+//   id = Number(id);
+//   const todo = todos.find((c) => c.id === id);
+
+//   if (!todo) {
+//     return Promise.resolve(null);
+//   }
+
+//   const index = todos.indexOf(todo);
+//   todos.splice(index, 1);
+
+//   return Promise.resolve(todo);
+// }
 
 
-function findByIdAndUpdate(id, newTodo) {
-  id = Number(id);
-  const todo = todos.find((c) => c.id === id);
-  newTodo.id = id;
+// function findByIdAndUpdate(id, newTodo) {
+//   id = Number(id);
+//   const todo = todos.find((c) => c.id === id);
+//   newTodo.id = id;
 
-  if (!todo) {
-    return Promise.resolve(null);
-  }
+//   if (!todo) {
+//     return Promise.resolve(null);
+//   }
 
-  const index = todos.indexOf(todo);
-  todos[index] = newTodo;
+//   const index = todos.indexOf(todo);
+//   todos[index] = newTodo;
 
-  return Promise.resolve(todo);
-}
+//   return Promise.resolve(todo);
+// }
 
-exports.find = find;
-exports.findById = findById;
-exports.create = create;
-exports.findByIdAndDelete = findByIdAndDelete;
-exports.findByIdAndUpdate = findByIdAndUpdate;
+// exports.find = find;
+// exports.findById = findById;
+// exports.create = create;
+// exports.findByIdAndDelete = findByIdAndDelete;
+// exports.findByIdAndUpdate = findByIdAndUpdate;
