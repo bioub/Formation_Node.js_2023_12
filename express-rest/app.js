@@ -8,9 +8,13 @@ const userRoutes = require('./routes/user');
 const app = express();
 
 // Log Middleware
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
+app.use((req, res, next) => {
+  console.log(req.method + ' ' + req.url);
+  next();
+})
 
-// CORS Middleware (cross-domain requests)
+// CORS Middleware (cross-origin requests)
 app.use(cors());
 
 // Routes

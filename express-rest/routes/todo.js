@@ -17,7 +17,7 @@ router.get('/:id',
 
 // prettier-ignore
 router.post('/',
-  // authenticate,
+  authenticate,
   express.json(),
   todoCtrl.add
 );
