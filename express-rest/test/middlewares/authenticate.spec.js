@@ -37,4 +37,9 @@ describe('authenticate middleware', () => {
     // authenticate(req, res, next);
     // expect(nextCalled).to.be.true;
   });
+
+  // Exercice
+  // Tester que le status soit 401
+  // et res.json appelé lorsque le token n'est pas valide
+
 });

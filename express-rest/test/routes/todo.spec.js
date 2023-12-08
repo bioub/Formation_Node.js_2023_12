@@ -51,4 +51,9 @@ describe("Todos routes", () => {
       Sinon.verifyAndRestore();
     });
   });
+
+
+  // Exercice
+  // Tester le GET /api/todos/abdcef1234
+  // avec un mock de findById
 });
